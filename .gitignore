@@ -1,3 +1,6 @@
 bin
 obj
 PublishProfiles
+
+# .DS_Store
+# .vs
