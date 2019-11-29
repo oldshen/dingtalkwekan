@@ -8,10 +8,10 @@
 ## 步骤：
 
 1. 在钉钉管理后台添加「H5微应用」新建应用「任务看板」
-![](newdingh5app.png)
+![任务看板](newdingh5app.png)
 
 2. 申请钉钉接口权限
-![](permissions.png)
+![申请权限](permissions.png)
 
 3. 修改nginx 配置，参考[nginx.conf](nginx/conf/nginx.conf)
 
@@ -25,4 +25,4 @@
 
 1. wekan 的设置里需要开启注册功能 和 webhook功能
 2. wekan 设置webhook:
-![](dinghook.png)
+![webhook](dinghook.png)
