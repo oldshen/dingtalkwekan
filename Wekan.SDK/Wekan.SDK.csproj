@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Mongo\" />
+    <Folder Include="Services\" />
+    <Folder Include="Api\" />
+    <Folder Include="HookMsg\" />
+    <Folder Include="Utils\" />
+    <Folder Include="HookMsg\Impl\" />
+    <Folder Include="Api\Impl\" />
+    <Folder Include="Mongo\Impl\" />
+    <Folder Include="Services\Impl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.3" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.0.1" />
+  </ItemGroup>
+</Project>

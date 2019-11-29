@@ -1,0 +1,97 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Wekan.SDK.LoginResult wekanResult = (Wekan.SDK.LoginResult)ViewData["Result"];
+}
+<html>
+<head>
+    <title>登录中...</title>
+    <style type="text/css">
+        *{font-size:12px;}
+    </style>
+    <script language="javascript">
+        function setCookie(name,value,expires)
+        {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape( value) + ";expires=" + expires + ";path=/";
+        }
+    </script>
+
+</head>
+<body>
+跳转中...
+
+<script language="javascript">
+
+    var result = { "id": "@wekanResult.id", "token": "@wekanResult.token", "tokenExpires": "@wekanResult.tokenExpires" };
+
+    function setLoginInfo(res) {
+        
+        localStorage.setItem("Meteor.loginToken", result.token);
+        localStorage.setItem("Meteor.loginTokenExpires", result.tokenExpires);
+        localStorage.setItem("Meteor.userId", result.id);
+
+        setCookie("meteor_login_token", result.token, result.tokenExpires);
+    }
+
+    setLoginInfo(result);
+    window.location.href = "@ViewData["WekanRoot"]";
+   // alert(result.tokenExpires);
+    // var sock = new SockJS('http://192.168.191.204/sockjs');
+    // sock.onopen = function() {
+    //     console.log('open');
+    //     sock.send(["{\"msg\":\"connect\",\"version\":\"1\",\"support\":[\"1\",\"pre2\",\"pre1\"]}"]);
+    // };
+    //sock.onmessage = function(e) {
+    //    console.log('message', e.data);
+    //    var result = JSON.parse(e.data);
+
+        
+    //    if (result.msg == "connected") {
+    //        var cookie = getCookie('meteor_login_token');
+    //        if (cookie) {
+    //            sock.send(["{\"msg\":\"method\",\"method\":\"login\",\"params\":[{\"resume\":\"" + cookie + "\"}],\"id\":\"1\"}"]);
+    //        } else {
+    //            sock.send(["{\"msg\":\"method\",\"method\":\"login\",\"params\":[{\"user\":{\"username\":\"shenjk\"},\"password\":{\"digest\":\"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\",\"algorithm\":\"sha-256\"}}],\"id\":\"3\"}"]);
+    //        }
+    //    } else if (result.msg == "ping") {
+    //        sock.send(["{\"msg\":\"pong\"}"]);
+    //    } else if (result.msg == "result") {
+    //        if ((result.id == "3" || result.id=="1") && result.result) {
+    //            var token = result.result.token;
+    //            var tokenExpires = result.result.tokenExpires.$date;
+    //            console.log(token);
+    //            console.log(tokenExpires);
+    //            console.log(formatDateT(tokenExpires));
+
+    //            localStorage.setItem("Meteor.loginToken", token);
+    //            localStorage.setItem("Meteor.loginTokenExpires", formatDateT(tokenExpires));
+    //            localStorage.setItem("Meteor.userId", result.result.id)
+
+    //            setCookie("meteor_login_token", token, formatDateT(tokenExpires));
+               
+    //        }
+    //    }
+    //};
+
+    // Meteor.loginToken
+    // Meteor.loginTokenExpires
+    // Meteor.userId
+
+   //window.location.href="http://192.168.191.204"
+    // meteor_login_token
+  
+     
+//a["{\"msg\":\"result\",\"id\":\"3\",\"result\":{\"id\":\"gq488tNq6Gexgnjph\",\"token\":\"gxAwbYpqf37hU_GtHBkni3lO_Uqa8W9JmSOCUe0Xyzp\",\"tokenExpires\":{\"$date\":1582522949848},\"type\":\"password\"}}"]
+
+//["{\"msg\":\"method\",\"method\":\"login\",\"params\":[{\"resume\":\"fbQtNPT72XYgGFThwDb3QndBUlGAPPWtH1te8ZUu6ut\"}],\"id\":\"1\"}"]
+     
+//["{\"msg\":\"method\",\"method\":\"login\",\"params\":[{\"user\":{\"username\":\"shenjk\"},\"password\":{\"digest\":\"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92\",\"algorithm\":\"sha-256\"}}],\"id\":\"9\"}"]
+//*/
+</script>
+
+    </body>
+</html>

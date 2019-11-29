@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务看板</title>
+    <script language="javascript" src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.7.13/dingtalk.open.js"></script>
+    <style type="text/css">
+        * {
+            font-size:12px;
+        }
+    </style>
+    <script language="javascript">
+
+        dd.ready(function() {
+            dd.runtime.permission.requestAuthCode({
+                corpId: "@ViewData["corpId"]", // 企业id
+                onSuccess: function (info) {
+                    code = info.code; // 通过该免登授权码可以获取用户身份
+                    window.location.href = "/Home/Login?code=" + code;
+                }});
+        });
+    </script>
+</head>
+    <body>
+        loading...
+   </body>
+</html>
