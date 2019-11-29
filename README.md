@@ -20,3 +20,9 @@
 5. 启动 wekan,启动 DingtalkWekan，启动nginx ；
 
 6. 在钉钉工作台中进入「任务看板」即可直接登录 wekan
+
+## 注意
+
+1. wekan 的设置里需要开启注册功能 和 webhook功能
+2. wekan 设置webhook:
+![](dinghook.png)
