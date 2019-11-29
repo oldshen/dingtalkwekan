@@ -2,5 +2,5 @@ bin
 obj
 PublishProfiles
 
-# .DS_Store
-# .vs
+.DS_Store
+.vs
